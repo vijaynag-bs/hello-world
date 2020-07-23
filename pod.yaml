@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-demo
+spec:
+  containers:
+    - name: demo
+      image: vijaynag/hello-world
+      ports:
+        - name: web
+          containerPort: 80
+        
