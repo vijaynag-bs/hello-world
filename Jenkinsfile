@@ -4,9 +4,15 @@ pipeline{
     stage('build'){
       steps{
         checkout scm
-        sh 'ls'
-        sh 'pwd'
+        docker build . -t vijaynag/hello_world
+        docker push vijaynag/hello_world
       }
     }
+    stage('deploy'){
+      steps{
+        checkout scm
+        kubectl apply -f pod.yaml
+      }
+    }  
   }
 }
